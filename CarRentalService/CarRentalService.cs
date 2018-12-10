@@ -73,6 +73,48 @@ namespace CarRentalService
             bookingService.Remove(booking);
         }
 
+        public Booking GetBooking(int id)
+        {
+            Booking bookingId = bookingService.Get(id);
+            return bookingId;
+        }
 
+        public void IsReturned(int bookingId)
+        {
+            bookingService.IsReturned(bookingId);
+        }
+
+        public void IsRented(int bookingId)
+        {
+            bookingService.IsRented(bookingId);
+        }
+
+        public List<Booking> GetAllBookings()
+        {
+            List<Booking> AllBookings = bookingService.GetAllBookings();
+            return AllBookings;
+        }
+
+        //CustomerService
+        public void AddCustomer(Customer customer)
+        {
+            customerService.Add(customer);
+        }
+
+        public void RemoveCustomer(Customer customer)
+        {
+            customerService.Remove(customer);
+        }
+
+        public Customer GetCustomer(int id)
+        {
+            Customer customerId = customerService.Get(id);
+            return customerId;
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            customerService.Update(customer);
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace CarRentalService
     [ServiceContract]
     public interface ICarRentalService
     {
+        //CarContracts
         [OperationContract]
         void AddCar(Car car);
 
@@ -35,10 +36,36 @@ namespace CarRentalService
         [OperationContract]
         List<DateTime> GetDates(DateTime startDate, DateTime endDate);
 
+        //BookingContracts
         [OperationContract]
         void CreateBooking(Booking booking);
 
         [OperationContract]
         void RemoveBooking(Booking booking);
+
+        [OperationContract]
+        Booking GetBooking(int Id);
+
+        [OperationContract]
+        void IsReturned(int bookingId);
+
+        [OperationContract]
+        void IsRented(int bookingId);
+
+        [OperationContract]
+        List<Booking> GetAllBookings();
+
+        //CustomerContracts
+        [OperationContract]
+        void AddCustomer(Customer customer);
+
+        [OperationContract]
+        void RemoveCustomer(Customer customer);
+
+        [OperationContract]
+        Customer GetCustomer(int Id);
+
+        [OperationContract]
+        void UpdateCustomer(Customer customer);
     }
 }

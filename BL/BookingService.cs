@@ -21,17 +21,20 @@ namespace BL
             var dataClient = new RentalCarDbClient();
             dataClient.RemoveBooking(booking.Id);
         }
+
         public Booking Get(int id)
         {
             var dataClient = new RentalCarDbClient();
             var booking = dataClient.GetBooking(id);
             return booking;
         }
+
         public void IsReturned(int bookingId)
         {
             var dataClient = new RentalCarDbClient();
             dataClient.IsReturned(bookingId, true);
         }
+
         public void IsRented(int bookingId)
         {
             var dataClient = new RentalCarDbClient();
