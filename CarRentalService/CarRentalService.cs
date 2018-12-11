@@ -117,4 +117,20 @@ namespace CarRentalService
             customerService.Update(customer);
         }
     }
+
+    //Message contract methods
+    public CarInfo GetCar(CarRequest request)
+    {
+        if (request.LicenseKey != "RentMyCar231")
+        {
+            throw new WebFaultException<string>(
+                "Wrong License Key",
+                HttpStatusCode.Forbidden);
+        }
+        else
+        {
+            Car car = null;
+            
+        }
+    }
 }
