@@ -49,18 +49,13 @@ namespace DAL
             }
         }
 
-        public List<Car> GetCarsById(List<int> carIds)
+        public Car GetCarById(int carId)
         {
-            List<Car> cars = new List<Car>();
             using (var conn = _connection)
             {
-                foreach (var id in carIds)
-                {
-                    var queryResult = conn.Query<Car>("SELECT * FROM dbo.Car WHERE Id = @Id", new { Id = id }).FirstOrDefault();
-                    cars.Add(queryResult);
-                }
+                var queryResult = conn.Query<Car>("SELECT * FROM dbo.Car WHERE Id = @Id", new { Id = carId }).FirstOrDefault();
+                return queryResult;
             }
-            return cars;
         }
 
         public List<int> GetAllAvailableCars(DateTime fromDate, DateTime toDate)

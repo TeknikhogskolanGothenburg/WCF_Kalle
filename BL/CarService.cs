@@ -29,10 +29,10 @@ namespace BL
             return ids;
         }
 
-        public List<Car> GetById(List<int> Ids)
+        public Car GetById(int id)
         {
             var dataClient = new RentalCarDbClient();
-            var cars = dataClient.GetCarsById(Ids);
+            var cars = dataClient.GetCarById(id);
             return cars;
         }
 

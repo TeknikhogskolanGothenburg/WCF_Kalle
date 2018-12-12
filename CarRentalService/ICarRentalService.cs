@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Security;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
 namespace CarRentalService
 {
-    [ServiceContract]
+    [ServiceContract(ProtectionLevel = ProtectionLevel.EncryptAndSign)]
     public interface ICarRentalService
     {
         //CarContracts
@@ -22,7 +23,7 @@ namespace CarRentalService
         List<int> GetAllAvailableCarIds(DateTime fromDate, DateTime toDate);
 
         [OperationContract]
-        List<Car> GetCarById(List<int> id);
+        CarInfo GetCarId(CarRequest request);
 
         [OperationContract]
         List<Car> GetAllCars();

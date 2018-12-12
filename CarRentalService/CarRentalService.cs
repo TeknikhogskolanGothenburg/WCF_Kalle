@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using BL;
 using Domain;
@@ -32,10 +34,20 @@ namespace CarRentalService
             return ids;
         }
 
-        public List<Car> GetCarById(List<int> id)
+        public CarInfo GetCarId(CarRequest request)
         {
-            List<Car> car = carService.GetById(id);
-            return car;
+            if(request.LicenseKey != "RentMyCar231")
+            {
+                throw new WebFaultException<string>(
+                    "Incorrect license key",
+                    HttpStatusCode.Forbidden);
+            }
+            else
+            {
+                var carData = new CarService();
+                var car = carData.GetById(request.CarId);
+                return new CarInfo(car);
+            }
         }
 
         public List<Car> GetAllCars()
@@ -115,22 +127,6 @@ namespace CarRentalService
         public void UpdateCustomer(Customer customer)
         {
             customerService.Update(customer);
-        }
-    }
-
-    //Message contract methods
-    public CarInfo GetCar(CarRequest request)
-    {
-        if (request.LicenseKey != "RentMyCar231")
-        {
-            throw new WebFaultException<string>(
-                "Wrong License Key",
-                HttpStatusCode.Forbidden);
-        }
-        else
-        {
-            Car car = null;
-            
         }
     }
 }
