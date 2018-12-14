@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{0EEE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalService", "CarRentalService\CarRentalService.csproj", "{87A2B50A-CD14-458D-B497-ED32CD27F71F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarServiceHost", "CarServiceHost\CarServiceHost.csproj", "{EBB2360F-1AC1-4294-97AC-7B225A8B7BF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalHost", "CarServiceHost\CarRentalHost.csproj", "{EBB2360F-1AC1-4294-97AC-7B225A8B7BF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalServiceHost", "CarRentalServiceHost\CarRentalServiceHost.csproj", "{A564EE81-29D3-4303-9C6C-081C5612A283}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalRestHost", "CarRentalServiceHost\CarRentalRestHost.csproj", "{A564EE81-29D3-4303-9C6C-081C5612A283}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

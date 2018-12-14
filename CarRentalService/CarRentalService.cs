@@ -44,9 +44,16 @@ namespace CarRentalService
             }
             else
             {
-                var carData = new CarService();
-                var car = carData.GetById(request.CarId);
-                return new CarInfo(car);
+                try
+                {
+                    var carData = new CarService();
+                    var car = carData.GetById(request.CarId);
+                    return new CarInfo(car);
+                }
+                catch
+                {
+                    throw new FaultException("That id is not valid, please provide a new one");
+                }
             }
         }
 
@@ -87,8 +94,15 @@ namespace CarRentalService
 
         public Booking GetBooking(int id)
         {
-            Booking bookingId = bookingService.Get(id);
-            return bookingId;
+            try
+            {
+                Booking bookingId = bookingService.Get(id);
+                return bookingId;
+            }
+            catch
+            {
+                throw new FaultException("That is not a valid id, please provide a new one");
+            }
         }
 
         public void IsReturned(int bookingId)
