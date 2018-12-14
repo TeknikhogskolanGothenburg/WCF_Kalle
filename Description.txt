@@ -1,0 +1,12 @@
+Var har du valt att hantera exceptions?
+Jag har valt att hantera exceptions på GetCarId och GetBooking.
+Här har jag lagt in try/catch. Om du inte har angett ett korrekt id som finns i databasen så kommer du få tillbaka ett faultexception.
+
+Vilka bindings har du använt, och varför har du valt just dessa?
+Jag har valt att använda wsHttpBinding på alla mina http endpoints för att det behövs för säkerheten.
+Sedan har jag netTcpBinding för transport security.
+Min mex endpoint använder mexHttpBinding.
+
+Om du provat en sak men inte fått den att fungera som du vill och gjort något annat:
+Jag funderade först på att dela upp mina operationcontracts i olika interface. Men efter att ha testat runt så tyckte jag det var enklare att ha dom alla i ett och samma interface och kalla på dom därifrån.
+
